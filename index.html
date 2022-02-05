@@ -4,33 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles/bio.css" rel="stylesheet" />
     <title>Bandsite</title>
   </head>
   <body>
     <header>
-      <nav>
-        <h2>Bandsite</h2>
-        <ul>
-          <li><a href="">Biography</a></li>
-          <li><a href="">Shows</a></li>
+      <nav class="nav">
+        <img src="assets/Logo/Logo-bandsite.svg" class="nav__header-image" />
+        <ul class="nav__list">
+          <li class="nav__link-container">
+            <a class="nav__links" href="">Biography</a>
+          </li>
+          <li class="nav__link-container">
+            <a class="nav__links" href="">Shows</a>
+          </li>
         </ul>
       </nav>
     </header>
     <main class="main">
       <section class="main__top">
-        <h1>The Bees Knees</h1>
+        <h1 class="main__top-header">The Bees Knees</h1>
       </section>
-      <artcle class="main__article">
-        <h1>About the Musicians</h1>
-        <img src="" alt="picture of a concert" />
-        <h3>
+      <article class="main__article">
+        <h1 class="main__article-header">About the Musicians</h1>
+        <img
+          class="main__article-header-image"
+          src="/assets/Images/band.jpg"
+          alt="picture of a concert"
+        />
+        <h3 class="main__article-subheader--bold">
           “We push each other to be the best. It’s not uncommon for one of us to
           say ‘this needs to be better, back to the drawing board’”
         </h3>
-        <h3>- Bryan Teddy, lead vocalist of The Bees Knees</h3>
-        <h3>The Bees Knees</h3>
+        <h3 class="main__article-subheader--bold">
+          - Bryan Teddy, lead vocalist of The Bees Knees
+        </h3>
+        <h3 class="main__article-subheader--regular">The Bees Knees</h3>
         <div class="main__article-div">
-          <p>
+          <p class="main__article-div-paragraph">
             The Bees Knees is a pop rock band originating from San Francisco,
             California. The band consists of lead vocalist Bryan Teddy,
             guitarist Mack Tolkens, guitarist Andrew Green, bassist Kent Zulkee
@@ -41,7 +52,7 @@
             could succeed even further, pushing them to sign with Magenta
             Records.
           </p>
-          <p>
+          <p class="main__article-div-paragraph">
             From there, the band has soared, gaining international recognition
             and ranking in the top 10 on the Poster Charts. New fans immediately
             fell in love with the band’s original and organic attitude,
@@ -53,56 +64,105 @@
             looking to be released in late 2021.
           </p>
         </div>
-      </artcle>
+      </article>
       <section class="main__gallery">
-        <h1>Photo Gallery</h1>
-        <img src="assets/Images/Photo-gallery-1.jpg" />
-        <img src="assets/Images/Photo-gallery-2.jpg" />
-        <img src="assets/Images/Photo-gallery-3.jpg" />
-        <img src="assets/Images/Photo-gallery-4.jpg" />
-        <img src="assets/Images/Photo-gallery-5.jpg" />
-        <img src="assets/Images/Photo-gallery-6.jpg" />
-        <img src="assets/Images/Photo-gallery-7.jpg" />
-        <img src="assets/Images/Photo-gallery-8.jpg" />
-        <img src="assets/Images/Photo-gallery-9.jpg" />
+        <h1 class="main__gallery-header">Photo Gallery</h1>
+        <img
+          class="main__gallery-image"
+          src="assets/Images/Photo-gallery-1.jpg"
+        />
+        <img
+          class="main__gallery-image"
+          src="assets/Images/Photo-gallery-2.jpg"
+        />
+        <img
+          class="main__gallery-image"
+          src="assets/Images/Photo-gallery-3.jpg"
+        />
+        <img
+          class="main__gallery-image"
+          src="assets/Images/Photo-gallery-4.jpg"
+        />
+        <img
+          class="main__gallery-image"
+          src="assets/Images/Photo-gallery-5.jpg"
+        />
+        <img
+          class="main__gallery-image"
+          src="assets/Images/Photo-gallery-6.jpg"
+        />
+        <img
+          class="main__gallery-image"
+          src="assets/Images/Photo-gallery-7.jpg"
+        />
+        <img
+          class="main__gallery-image"
+          src="assets/Images/Photo-gallery-8.jpg"
+        />
+        <img
+          class="main__gallery-image main__gallery--bottom-margin"
+          src="assets/Images/Photo-gallery-9.jpg"
+        />
       </section>
     </main>
     <footer class="footer">
-      <h1>Get in Touch</h1>
+      <h1 class="footer__header">Get in Touch</h1>
       <div class="footer__icons">
         <img src="assets/Icons/SVG/Icon-instagram.svg" />
         <img src="assets/Icons/SVG/Icon-facebook.svg" />
         <img src="assets/Icons/SVG/Icon-twitter.svg" />
       </div>
       <section class="footer__bottom-section">
-        <p>Cam Adams</p>
-        <p>The Bees Knees Management</p>
+        <p class="footer__paragraph--bold footer__paragraph--top-padding">
+          Cam Adams
+        </p>
+        <p class="footer__paragraph--bold footer__paragraph--bottom-padding">
+          The Bees Knees Management
+        </p>
         <!-- break here -->
-        <p>503 Broadway Penthouse,</p>
-        <p>New York, NY 10012, USA</p>
+        <p class="footer__paragraph--regular">503 Broadway Penthouse,</p>
+        <p class="footer__paragraph--regular footer__paragraph--bottom-padding">
+          New York, NY 10012, USA
+        </p>
         <!-- break here -->
-        <p>info@thebeesknees.com</p>
+        <p class="footer__paragraph--regular">info@thebeesknees.com</p>
       </section>
       <section class="footer__bottom-section">
-        <p>Pearl Gregg</p>
-        <p>Limitless Artist Group</p>
+        <p class="footer__paragraph--bold footer__paragraph--top-padding">
+          Pearl Gregg
+        </p>
+        <p class="footer__paragraph--bold footer__paragraph--bottom-padding">
+          Limitless Artist Group
+        </p>
         <!-- break here -->
-        <p>Booking Agent for</p>
-        <p>US / South America / Japan</p>
+        <p class="footer__paragraph--regular">Booking Agent for</p>
+        <p class="footer__paragraph--regular footer__paragraph--bottom-padding">
+          US / South America / Japan
+        </p>
         <!-- break here -->
-        <p>pearl.gregg@limitlessag.com</p>
+        <p class="footer__paragraph--regular">pearl.gregg@limitlessag.com</p>
       </section>
       <section class="footer__bottom-section">
-        <p>Carson Whyte</p>
-        <p>ARCH Entertainment</p>
+        <p class="footer__paragraph--bold footer__paragraph--top-padding">
+          Carson Whyte
+        </p>
+        <p class="footer__paragraph--bold footer__paragraph--bottom-padding">
+          ARCH Entertainment
+        </p>
         <!-- break here -->
-        <p>Booking Agent for</p>
-        <p>UK / EU / AU</p>
+        <p class="footer__paragraph--regular">Booking Agent for</p>
+        <p class="footer__paragraph--regular footer__paragraph--bottom-padding">
+          UK / EU / AU
+        </p>
         <!-- break here -->
-        <p>cwhyte@archentertainment.com</p>
+        <p class="footer__paragraph--regular footer__paragraph--bottom-padding">
+          cwhyte@archentertainment.com
+        </p>
       </section>
-      <h3>BANDSITE</h3>
-      <p>Copyright The Bees Knees © 2021 All Rights Reserved</p>
+      <img src="assets/Logo/Logo-bandsite.svg" class="nav__header-image" />
+      <p class="footer__paragraph--regular">
+        Copyright The Bees Knees © 2021 All Rights Reserved
+      </p>
     </footer>
   </body>
 </html>

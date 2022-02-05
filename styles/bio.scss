@@ -1,0 +1,148 @@
+//THIS IS THE MAIN/GLOBAL SCSS
+@use "partials/colors.scss" as *;
+@use "partials/reset.scss" as *;
+@use "partials/mixins.scss" as *;
+@use "partials/fonts.scss" as *;
+@use "partials/padding.scss" as *;
+
+//GET CUSTOM FONT TO WORK
+body {
+  font-family: "AvenirNextLTPro-Regular";
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: $primary-black;
+}
+
+.nav__header-image {
+  width: 30%;
+  background-repeat: no-repeat;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.nav__list {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: $other-padding;
+}
+
+.nav__links {
+  @include body-copy;
+  color: $primary-silver;
+  padding: $other-padding;
+}
+
+.main {
+  color: $primary-black;
+}
+
+.main__top {
+  background: url(../assets/Images/hero-bio.jpg);
+  background-size: cover;
+  background-position: center center;
+  height: 12rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.main__top-header {
+  @include page-header;
+  color: $primary-white;
+  margin-left: $other-padding;
+}
+
+.main__article {
+  padding: 0 $other-padding;
+  display: flex;
+  flex-direction: column;
+}
+
+.main__article-header {
+  @include page-header;
+  margin: $before-heading-padding 0 $other-padding;
+}
+
+.main__article-header-image {
+  margin-bottom: $other-padding;
+}
+
+.main__article-subheader--bold {
+  @include body-copy;
+  font-weight: 700;
+}
+
+.main__article-subheader--regular {
+  @include body-copy;
+  font-weight: 600;
+  margin: $before-heading-padding 0 $other-padding;
+}
+
+.main__article-div {
+  display: flex;
+  flex-direction: column;
+  &-paragraph {
+    @include body-copy;
+    font-weight: 400;
+    margin: 0 0 $other-padding;
+  }
+}
+
+.main__gallery {
+  background: $secondary-mercury;
+  display: flex;
+  flex-direction: column;
+  padding: 0 $other-padding;
+  &-header {
+    @include page-header;
+    margin: $before-heading-padding 0 0;
+  }
+  &-image {
+    margin: $other-padding 0 0;
+  }
+  &--bottom-margin {
+    margin-bottom: $other-padding;
+  }
+}
+
+.footer {
+  background: $primary-black;
+  color: $primary-white;
+}
+
+.footer__header {
+  @include section-header;
+  margin: 0 0 $other-padding;
+  padding-top: $before-heading-padding;
+  width: 60vw;
+}
+
+.footer__icons {
+  display: flex;
+  justify-content: space-between;
+  width: 40vw;
+}
+
+.footer__paragraph--bold {
+  @include footer-copy;
+  font-weight: 700;
+}
+
+.footer__paragraph--regular {
+  @include footer-copy;
+}
+
+.footer__paragraph--top-padding {
+  padding-top: $before-heading-padding;
+}
+
+.footer__paragraph--bottom-padding {
+  padding-bottom: $other-padding;
+}
