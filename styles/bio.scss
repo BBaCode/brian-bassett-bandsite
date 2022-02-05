@@ -23,30 +23,57 @@ body {
   width: 30%;
   background-repeat: no-repeat;
   height: auto;
-  margin: 1rem 0;
+  margin: 1rem 0 0;
 }
 
 .nav__list {
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  padding-bottom: $other-padding;
+  justify-content: center;
 }
 
-.nav__links {
+.nav__link-container {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  padding: $other-padding;
+}
+
+.nav__link-container--active {
+  border-bottom: 0.25rem solid $primary-white;
+}
+
+.nav__link-container:hover {
+  border-bottom: 0.25rem solid $primary-white;
+}
+
+.nav__link {
   @include body-copy;
   color: $primary-silver;
-  padding: $other-padding;
+}
+
+.nav__link--active {
+  font-weight: 700;
+  color: $primary-white;
+}
+
+.nav__link:hover {
+  color: $primary-white;
 }
 
 .main {
   color: $primary-black;
 }
 
+.main__container {
+  background-color: #323232;
+}
+
 .main__top {
-  background: url(../assets/Images/hero-bio.jpg);
+  background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)),
+    url(../assets/Images/hero-bio.jpg);
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   height: 12rem;
   display: flex;
   justify-content: flex-start;
@@ -71,7 +98,8 @@ body {
 }
 
 .main__article-header-image {
-  margin-bottom: $other-padding;
+  padding-bottom: $other-padding;
+  width: 100%;
 }
 
 .main__article-subheader--bold {
@@ -115,6 +143,7 @@ body {
 .footer {
   background: $primary-black;
   color: $primary-white;
+  padding-left: $other-padding;
 }
 
 .footer__header {
@@ -139,10 +168,21 @@ body {
   @include footer-copy;
 }
 
-.footer__paragraph--top-padding {
+//all of these are to get the correct spacing in the footer
+//I didnt want to make new containers for each set
+
+.footer__paragraph--top-padding--large {
   padding-top: $before-heading-padding;
 }
 
-.footer__paragraph--bottom-padding {
+.footer__paragraph--bottom-padding--small {
   padding-bottom: $other-padding;
+}
+
+.footer__paragraph--top-padding--small {
+  padding-top: $other-padding;
+}
+
+.footer__paragraph--bottom-padding--large {
+  padding-bottom: 2.5rem;
 }
