@@ -171,47 +171,39 @@ body {
   width: 100%;
   background-color: #323232;
 }
-
 .nav__header-image {
   width: 30%;
   background-repeat: no-repeat;
   height: auto;
   margin: 1rem 0 0;
 }
-
 .nav__list {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-
 .nav__link-container {
   width: 100%;
   display: inline-block;
   text-align: center;
   padding: 1rem;
 }
-
 .nav__link-container--active {
   border-bottom: 0.25rem solid #ffffff;
 }
-
 .nav__link-container:hover {
   border-bottom: 0.25rem solid #ffffff;
 }
-
 .nav__link {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: 400;
   color: #afafaf;
 }
-
 .nav__link--active {
   font-weight: 700;
   color: #ffffff;
 }
-
 .nav__link:hover {
   color: #ffffff;
 }
@@ -219,21 +211,18 @@ body {
 .main {
   color: #323232;
 }
-
 .main__container {
-  background-color: #323232;
+  color: #323232;
 }
-
 .main__top {
   background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url(../assets/Images/hero-bio.jpg);
   background-size: cover;
   background-position: center;
-  height: 12rem;
+  height: 35vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-
 .main__top-header {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -241,40 +230,33 @@ body {
   color: #ffffff;
   margin-left: 1rem;
 }
-
 .main__article {
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
 }
-
 .main__article-header {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
   margin: 1.5rem 0 1rem;
 }
-
 .main__article-header-image {
   padding-bottom: 1rem;
   width: 100%;
 }
-
-.main__article-subheader--bold {
+.main__article-subheader {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: 400;
+}
+.main__article-subheader--bold {
   font-weight: 700;
 }
-
 .main__article-subheader--regular {
-  font-size: 0.8125rem;
-  line-height: 1.125rem;
-  font-weight: 400;
   font-weight: 600;
   margin: 1.5rem 0 1rem;
 }
-
 .main__article-div {
   display: flex;
   flex-direction: column;
@@ -286,7 +268,6 @@ body {
   font-weight: 400;
   margin: 0 0 1rem;
 }
-
 .main__gallery {
   background: #e1e1e1;
   display: flex;
@@ -311,7 +292,6 @@ body {
   color: #ffffff;
   padding-left: 1rem;
 }
-
 .footer__header {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -320,38 +300,31 @@ body {
   padding-top: 1.5rem;
   width: 60vw;
 }
-
 .footer__icons {
   display: flex;
   justify-content: space-between;
-  width: 40vw;
+  width: 35%;
 }
-
+.footer__paragraph {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
 .footer__paragraph--bold {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: 400;
   font-weight: 700;
 }
-
-.footer__paragraph--regular {
-  font-size: 0.8125rem;
-  line-height: 1.125rem;
-  font-weight: 400;
-}
-
 .footer__paragraph--top-padding--large {
   padding-top: 1.5rem;
 }
-
 .footer__paragraph--bottom-padding--small {
   padding-bottom: 1rem;
 }
-
 .footer__paragraph--top-padding--small {
   padding-top: 1rem;
 }
-
 .footer__paragraph--bottom-padding--large {
   padding-bottom: 2.5rem;
 }/*# sourceMappingURL=bio.css.map */

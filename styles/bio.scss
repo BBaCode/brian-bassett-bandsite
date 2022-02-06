@@ -17,126 +17,110 @@ body {
   justify-content: center;
   width: 100%;
   background-color: $primary-black;
-}
-
-.nav__header-image {
-  width: 30%;
-  background-repeat: no-repeat;
-  height: auto;
-  margin: 1rem 0 0;
-}
-
-.nav__list {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.nav__link-container {
-  width: 100%;
-  display: inline-block;
-  text-align: center;
-  padding: $other-padding;
-}
-
-.nav__link-container--active {
-  border-bottom: 0.25rem solid $primary-white;
-}
-
-.nav__link-container:hover {
-  border-bottom: 0.25rem solid $primary-white;
-}
-
-.nav__link {
-  @include body-copy;
-  color: $primary-silver;
-}
-
-.nav__link--active {
-  font-weight: 700;
-  color: $primary-white;
-}
-
-.nav__link:hover {
-  color: $primary-white;
+  &__header-image {
+    width: 30%;
+    background-repeat: no-repeat;
+    height: auto;
+    margin: 1rem 0 0;
+  }
+  &__list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  &__link-container {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: $other-padding;
+    &--active {
+      border-bottom: 0.25rem solid $primary-white;
+    }
+    &:hover {
+      border-bottom: 0.25rem solid $primary-white;
+    }
+  }
+  &__link {
+    @include body-copy;
+    color: $primary-silver;
+    &--active {
+      font-weight: 700;
+      color: $primary-white;
+    }
+    &:hover {
+      color: $primary-white;
+    }
+  }
 }
 
 .main {
   color: $primary-black;
-}
-
-.main__container {
-  background-color: #323232;
-}
-
-.main__top {
-  background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)),
-    url(../assets/Images/hero-bio.jpg);
-  background-size: cover;
-  background-position: center;
-  height: 12rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.main__top-header {
-  @include page-header;
-  color: $primary-white;
-  margin-left: $other-padding;
-}
-
-.main__article {
-  padding: 0 $other-padding;
-  display: flex;
-  flex-direction: column;
-}
-
-.main__article-header {
-  @include page-header;
-  margin: $before-heading-padding 0 $other-padding;
-}
-
-.main__article-header-image {
-  padding-bottom: $other-padding;
-  width: 100%;
-}
-
-.main__article-subheader--bold {
-  @include body-copy;
-  font-weight: 700;
-}
-
-.main__article-subheader--regular {
-  @include body-copy;
-  font-weight: 600;
-  margin: $before-heading-padding 0 $other-padding;
-}
-
-.main__article-div {
-  display: flex;
-  flex-direction: column;
-  &-paragraph {
-    @include body-copy;
-    font-weight: 400;
-    margin: 0 0 $other-padding;
+  &__container {
+    color: #323232;
   }
-}
+  &__top {
+    background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)),
+      url(../assets/Images/hero-bio.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 35vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &-header {
+      @include page-header;
+      color: $primary-white;
+      margin-left: $other-padding;
+    }
+  }
+  &__article {
+    padding: 0 $other-padding;
+    display: flex;
+    flex-direction: column;
+    &-header {
+      @include page-header;
+      margin: $before-heading-padding 0 $other-padding;
+      &-image {
+        padding-bottom: $other-padding;
+        width: 100%;
+      }
+    }
+    &-subheader {
+      @include body-copy;
+      &--bold {
+        font-weight: 700;
+      }
+      &--regular {
+        font-weight: 600;
+        margin: $before-heading-padding 0 $other-padding;
+      }
+    }
 
-.main__gallery {
-  background: $secondary-mercury;
-  display: flex;
-  flex-direction: column;
-  padding: 0 $other-padding;
-  &-header {
-    @include page-header;
-    margin: $before-heading-padding 0 0;
+    &-div {
+      display: flex;
+      flex-direction: column;
+      &-paragraph {
+        @include body-copy;
+        font-weight: 400;
+        margin: 0 0 $other-padding;
+      }
+    }
   }
-  &-image {
-    margin: $other-padding 0 0;
-  }
-  &--bottom-margin {
-    margin-bottom: $other-padding;
+  &__gallery {
+    background: $secondary-mercury;
+    display: flex;
+    flex-direction: column;
+    padding: 0 $other-padding;
+    &-header {
+      @include page-header;
+      margin: $before-heading-padding 0 0;
+    }
+    &-image {
+      margin: $other-padding 0 0;
+    }
+    &--bottom-margin {
+      margin-bottom: $other-padding;
+    }
   }
 }
 
@@ -144,45 +128,35 @@ body {
   background: $primary-black;
   color: $primary-white;
   padding-left: $other-padding;
-}
-
-.footer__header {
-  @include section-header;
-  margin: 0 0 $other-padding;
-  padding-top: $before-heading-padding;
-  width: 60vw;
-}
-
-.footer__icons {
-  display: flex;
-  justify-content: space-between;
-  width: 40vw;
-}
-
-.footer__paragraph--bold {
-  @include footer-copy;
-  font-weight: 700;
-}
-
-.footer__paragraph--regular {
-  @include footer-copy;
-}
-
-//all of these are to get the correct spacing in the footer
-//I didnt want to make new containers for each set
-
-.footer__paragraph--top-padding--large {
-  padding-top: $before-heading-padding;
-}
-
-.footer__paragraph--bottom-padding--small {
-  padding-bottom: $other-padding;
-}
-
-.footer__paragraph--top-padding--small {
-  padding-top: $other-padding;
-}
-
-.footer__paragraph--bottom-padding--large {
-  padding-bottom: 2.5rem;
+  &__header {
+    @include section-header;
+    margin: 0 0 $other-padding;
+    padding-top: $before-heading-padding;
+    width: 60vw;
+  }
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+  }
+  &__paragraph {
+    @include footer-copy;
+    &--bold {
+      //the --bold class is not inheriting the "footer-copy" mixin
+      @include footer-copy;
+      font-weight: 700;
+    }
+    &--top-padding--large {
+      padding-top: $before-heading-padding;
+    }
+    &--bottom-padding--small {
+      padding-bottom: $other-padding;
+    }
+    &--top-padding--small {
+      padding-top: $other-padding;
+    }
+    &--bottom-padding--large {
+      padding-bottom: 2.5rem;
+    }
+  }
 }
