@@ -5,9 +5,12 @@
 @use "partials/fonts.scss" as *;
 @use "partials/padding.scss" as *;
 
-//GET CUSTOM FONT TO WORK
 body {
   font-family: "AvenirNextLTPro-Regular";
+}
+
+header {
+  background-color: #323232;
 }
 
 .nav {
@@ -17,27 +20,50 @@ body {
   justify-content: center;
   width: 100%;
   background-color: $primary-black;
+  @include tablet {
+    flex-direction: row;
+    width: 50%;
+  }
+  @include desktop {
+    margin-left: 2.9375rem;
+  }
   &__header-image {
-    width: 30%;
-    background-repeat: no-repeat;
-    height: auto;
+    @include logo;
     margin: 1rem 0 0;
+    @include tablet {
+      margin: $tablet-other-padding;
+    }
   }
   &__list {
     width: 100%;
     display: flex;
     justify-content: center;
+    @include desktop {
+      justify-content: flex-start;
+    }
   }
   &__link-container {
     width: 100%;
     display: inline-block;
     text-align: center;
     padding: $other-padding;
+    @include tablet {
+      padding: 0;
+    }
+    @include desktop {
+      width: 7vw;
+    }
     &--active {
       border-bottom: 0.25rem solid $primary-white;
+      @include tablet {
+        border-bottom: none;
+      }
     }
     &:hover {
       border-bottom: 0.25rem solid $primary-white;
+      @include tablet {
+        border-bottom: none;
+      }
     }
   }
   &__link {
@@ -46,6 +72,10 @@ body {
     &--active {
       font-weight: 700;
       color: $primary-white;
+      @include tablet {
+        border-bottom: 0.25rem solid $primary-white;
+        padding-bottom: 2rem;
+      }
     }
     &:hover {
       color: $primary-white;
@@ -67,59 +97,142 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    @include tablet {
+      height: 50vh;
+    }
     &-header {
       @include page-header;
       color: $primary-white;
       margin-left: $other-padding;
+      @include tablet {
+        margin-left: $tablet-other-padding;
+      }
+      @include desktop {
+        margin-left: 4.9375rem;
+      }
     }
   }
   &__article {
     padding: 0 $other-padding;
     display: flex;
     flex-direction: column;
+    @include tablet {
+      padding: 0 $tablet-other-padding;
+    }
+    @include desktop {
+      margin: 0 3.9375rem 0;
+    }
     &-header {
       @include page-header;
       margin: $before-heading-padding 0 $other-padding;
+      @include tablet {
+        @include section-header;
+        margin: $tablet-heading-padding 0 $tablet-other-padding;
+      }
       &-image {
         padding-bottom: $other-padding;
         width: 100%;
+        @include tablet {
+          padding: 0 $tablet-heading-padding $tablet-other-padding;
+        }
       }
     }
     &-subheader {
       @include body-copy;
+      font-weight: 600;
+      @include tablet {
+        padding: 0 $tablet-heading-padding 0;
+      }
       &--bold {
         font-weight: 700;
+        @include tablet {
+          @include subheader;
+          margin-bottom: $other-padding;
+        }
+        @include desktop {
+          width: 74%;
+        }
       }
       &--regular {
-        font-weight: 600;
+        @include subheader;
+        @include tablet {
+          margin: 0 0 $tablet-other-padding;
+        }
+      }
+      &--title {
         margin: $before-heading-padding 0 $other-padding;
+        @include tablet {
+          @include subheader;
+          font-weight: 700;
+        }
       }
     }
-
     &-div {
       display: flex;
       flex-direction: column;
+      @include tablet {
+        flex-direction: row;
+        margin: 0 $tablet-heading-padding;
+      }
       &-paragraph {
         @include body-copy;
         font-weight: 400;
         margin: 0 0 $other-padding;
+        @include tablet {
+          margin: 0 0 $tablet-other-padding;
+        }
+
+        &-left {
+          @include tablet {
+            margin-right: 1.5rem;
+          }
+        }
       }
     }
   }
   &__gallery {
     background: $secondary-mercury;
-    display: flex;
-    flex-direction: column;
     padding: 0 $other-padding;
+    @include tablet {
+      padding: 0 $tablet-other-padding;
+    }
+    @include desktop {
+      padding: 0 6.1875rem;
+    }
     &-header {
       @include page-header;
-      margin: $before-heading-padding 0 0;
+      padding: $before-heading-padding 0 0;
+      @include tablet {
+        @include section-header;
+      }
+    }
+    &-container {
+      display: flex;
+      flex-direction: column;
+      @include tablet {
+        margin: 1rem 0 0 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
     }
     &-image {
       margin: $other-padding 0 0;
+      @include tablet {
+        width: 14rem;
+        height: 8rem;
+      }
+      @include desktop {
+        width: 22rem;
+        height: 12rem;
+      }
     }
     &--bottom-margin {
       margin-bottom: $other-padding;
+      @include tablet {
+        margin-bottom: $tablet-other-padding;
+      }
     }
   }
 }
@@ -128,23 +241,79 @@ body {
   background: $primary-black;
   color: $primary-white;
   padding-left: $other-padding;
+  @include tablet {
+    padding-left: $tablet-other-padding;
+    position: relative;
+  }
   &__header {
     @include section-header;
     margin: 0 0 $other-padding;
     padding-top: $before-heading-padding;
-    width: 60vw;
+    @include tablet {
+      align-self: center;
+      padding-bottom: 0.5rem;
+    }
   }
-  &__icons {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+    }
+    &-top {
+      @include tablet {
+        padding-top: 0.75rem;
+      }
+      @include desktop {
+        margin-left: 3.9375rem;
+      }
+    }
+    &-middle {
+      @include tablet {
+        justify-content: space-evenly;
+        margin-left: -2.5rem;
+      }
+      @include desktop {
+        width: 75%;
+        margin-left: -1rem;
+      }
+    }
+  }
+  &__icon-container {
     display: flex;
     justify-content: space-between;
-    width: 35%;
+    width: 30vw;
+    align-items: center;
+    @include tablet {
+      justify-content: space-evenly;
+    }
+    @include desktop {
+      margin-left: 2rem;
+      width: 25vw;
+    }
   }
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__logo-image {
+    @include logo;
+    @include tablet {
+      position: absolute;
+      top: $tablet-heading-padding;
+      right: $tablet-other-padding;
+    }
+  }
+
   &__paragraph {
     @include footer-copy;
     &--bold {
-      //the --bold class is not inheriting the "footer-copy" mixin
-      @include footer-copy;
       font-weight: 700;
+      line-height: 1.125rem;
+      @include tablet {
+        line-height: 1.25rem;
+      }
     }
     &--top-padding--large {
       padding-top: $before-heading-padding;
@@ -154,6 +323,9 @@ body {
     }
     &--top-padding--small {
       padding-top: $other-padding;
+      @include desktop {
+        margin-left: 3.9375rem;
+      }
     }
     &--bottom-padding--large {
       padding-bottom: 2.5rem;
