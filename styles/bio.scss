@@ -190,6 +190,7 @@ header {
       }
     }
   }
+  //GALLERY SECTION ---------------------
   &__gallery {
     background: $secondary-mercury;
     padding: 0 $other-padding;
@@ -235,16 +236,29 @@ header {
       }
     }
   }
+  //COMMENTS SECTION ---------------
   &__comments {
     background-color: $primary-white;
     &-header {
-      @include page-header;
+      @include section-header;
       padding: $before-heading-padding 0 $other-padding $other-padding;
+      @include tablet {
+        padding: $tablet-heading-padding 0 $tablet-other-padding
+          $tablet-other-padding;
+      }
+    }
+    &-container {
+      display: flex;
+      justify-content: center;
     }
     &-article {
       display: flex;
       justify-content: space-evenly;
       border-bottom: 1px solid $secondary-mercury;
+      width: 85%;
+      @include tablet {
+        justify-content: center;
+      }
     }
     &-avatar {
       max-width: 2.25rem;
@@ -252,38 +266,53 @@ header {
       border-radius: 50%;
       margin-top: $before-heading-padding;
     }
+    &-form {
+      width: 80%;
+      @include tablet {
+        width: 100%;
+        padding-left: 1rem;
+      }
+    }
     &-label {
       @include labels-buttons;
-      color: $secondary-mercury;
+      color: $primary-silver;
     }
     &-field {
-      width: 80vw;
+      width: 100%;
       padding: 0.75rem;
       border: 1px solid $secondary-mercury;
       border-radius: 0.25rem;
       margin-bottom: $other-padding;
+      &::placeholder {
+        color: $primary-black;
+        opacity: 1;
+      }
     }
     &-field--padding-bottom {
       padding-bottom: 5rem;
     }
     &-button {
-      width: 100%;
-      height: 2.5rem;
-      border: none;
-      border-radius: 0.25rem;
-      background-color: $primary-black;
-      color: $primary-white;
-      @include labels-buttons;
-      margin-bottom: $other-padding;
-      font-size: 1rem;
+      @include button;
+      @include tablet {
+        width: 30%;
+        float: right;
+      }
     }
+
     &-card {
       display: flex;
       justify-content: space-evenly;
       border-bottom: 1px solid $secondary-mercury;
       padding-top: $other-padding;
+      width: 85%;
+      &-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
       &__right {
-        width: 80vw;
+        width: 80%;
         &-top {
           display: flex;
           justify-content: space-between;
@@ -316,6 +345,7 @@ header {
   background: $primary-black;
   color: $primary-white;
   padding-left: $other-padding;
+
   @include tablet {
     padding-left: $tablet-other-padding;
     position: relative;
@@ -336,6 +366,7 @@ header {
       flex-direction: row;
     }
     &-top {
+      position: relative;
       @include tablet {
         padding-top: 0.75rem;
       }
@@ -345,8 +376,9 @@ header {
     }
     &-middle {
       @include tablet {
-        justify-content: space-evenly;
-        margin-left: -2.5rem;
+        justify-content: space-between;
+        // margin-left: -2.5rem;
+        margin-right: $tablet-other-padding;
       }
       @include desktop {
         width: 75%;
@@ -354,13 +386,22 @@ header {
       }
     }
   }
+  &__bottom-middle {
+    left: 17.8rem;
+    justify-self: center;
+  }
   &__icon-container {
     display: flex;
-    margin-left: -1rem;
+    // margin-left: -1rem;
     width: 30vw;
     align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 3.8rem;
     @include tablet {
-      margin-left: 2.5rem;
+      top: 2.8rem;
+      left: 17.8rem;
+      justify-self: center;
     }
     @include desktop {
       margin-left: 7rem;
@@ -370,7 +411,7 @@ header {
   &__icon {
     width: 1.5rem;
     height: 1.5rem;
-    margin: 0 1rem;
+    margin: 0 1.15rem;
   }
 
   &__logo-image {

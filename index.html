@@ -14,13 +14,16 @@
           src="assets/Logo/Logo-bandsite.svg"
           class="nav__header-image"
           alt="Bandsite logo"
+          href="index.html"
         />
         <ul class="nav__list">
           <li class="nav__link-container nav__link-container--active">
-            <a class="nav__link nav__link--active" href="">Biography</a>
+            <a class="nav__link nav__link--active" href="index.html"
+              >Biography</a
+            >
           </li>
           <li class="nav__link-container">
-            <a class="nav__link" href="">Shows</a>
+            <a class="nav__link" href="pages/shows.html">Shows</a>
           </li>
         </ul>
       </nav>
@@ -32,7 +35,7 @@
         </div>
       </section>
       <article class="main__article">
-        <h1 class="main__article-header">About the Musicians</h1>
+        <h2 class="main__article-header">About the Musicians</h2>
         <img
           class="main__article-header-image"
           src="assets/Images/band.jpg"
@@ -127,93 +130,122 @@
       </section>
       <section class="main__comments">
         <h1 class="main__comments-header">Join the Conversation</h1>
-        <article class="main__comments-article">
-          <img
-            class="main__comments-avatar"
-            alt="photo of a man looking to the left"
-            src="assets/Images/Mohan-muruge.jpg"
-          />
-          <div>
-            <h6 class="main__comments-label">NAME</h6>
-            <p class="main__comments-field">Enter your name</p>
-            <h6 class="main__comments-label">COMMENT</h6>
-            <p
-              class="main__comments-field main__comments-field--padding-bottom"
-            >
-              Add a new comment
-            </p>
-            <button class="main__comments-button">COMMENT</button>
-          </div>
-        </article>
-        <div class="main__comments-card">
-          <img class="main__comments-empty-avatar" src="#" alt="empty avatar" />
-          <div class="main__comments-card__right">
-            <div class="main__comments-card__right-top">
-              <h5 class="main__comments-card__right-top-header">
-                Connor Walton
-              </h5>
-              <p class="main__comments-card__right-top-date">02/17/2021</p>
-            </div>
-            <p class="main__comments-card__bottom-paragraph">
-              This is art. This is inexplicable magic expressed in the purest
-              way, everything that makes up this majestic work deserves
-              reverence. Let us appreciate this for what it is and what it
-              contains.
-            </p>
-          </div>
+        <div class="main__comments-container">
+          <article class="main__comments-article">
+            <img
+              class="main__comments-avatar"
+              alt="photo of a man looking to the left"
+              src="assets/Images/Mohan-muruge.jpg"
+            />
+            <form class="main__comments-form">
+              <label for="name" class="main__comments-label">NAME</label>
+              <input
+                type="text"
+                id="name"
+                ;
+                name="name"
+                class="main__comments-field"
+                placeholder="Enter your name"
+              />
+              <label class="main__comments-label">COMMENT</label>
+              <input
+                type="text"
+                id="name"
+                ;
+                name="name"
+                ;
+                class="main__comments-field main__comments-field--padding-bottom"
+                placeholder="Add a new comment"
+              />
+              <button id="button" name="button" class="main__comments-button">
+                COMMENT
+              </button>
+            </form>
+          </article>
         </div>
-        <div class="main__comments-card">
-          <img class="main__comments-empty-avatar" src="#" alt="empty avatar" />
-          <div class="main__comments-card__right">
-            <div class="main__comments-card__right-top">
-              <h5 class="main__comments-card__right-top-header">
-                Connor Walton
-              </h5>
-              <p class="main__comments-card__right-top-date">02/17/2021</p>
+        <section class="main__comments-card-container">
+          <div class="main__comments-card">
+            <img
+              class="main__comments-empty-avatar"
+              src="#"
+              alt="empty avatar"
+            />
+            <div class="main__comments-card__right">
+              <div class="main__comments-card__right-top">
+                <h5 class="main__comments-card__right-top-header">
+                  Connor Walton
+                </h5>
+                <p class="main__comments-card__right-top-date">02/17/2021</p>
+              </div>
+              <p class="main__comments-card__bottom-paragraph">
+                This is art. This is inexplicable magic expressed in the purest
+                way, everything that makes up this majestic work deserves
+                reverence. Let us appreciate this for what it is and what it
+                contains.
+              </p>
             </div>
-            <p class="main__comments-card__bottom-paragraph">
-              This is art. This is inexplicable magic expressed in the purest
-              way, everything that makes up this majestic work deserves
-              reverence. Let us appreciate this for what it is and what it
-              contains.
-            </p>
           </div>
-        </div>
-        <div class="main__comments-card">
-          <img class="main__comments-empty-avatar" src="#" alt="empty avatar" />
-          <div class="main__comments-card__right">
-            <div class="main__comments-card__right-top">
-              <h5 class="main__comments-card__right-top-header">
-                Connor Walton
-              </h5>
-              <p class="main__comments-card__right-top-date">02/17/2021</p>
+          <div class="main__comments-card">
+            <img
+              class="main__comments-empty-avatar"
+              src="#"
+              alt="empty avatar"
+            />
+            <div class="main__comments-card__right">
+              <div class="main__comments-card__right-top">
+                <h5 class="main__comments-card__right-top-header">
+                  Connor Walton
+                </h5>
+                <p class="main__comments-card__right-top-date">02/17/2021</p>
+              </div>
+              <p class="main__comments-card__bottom-paragraph">
+                This is art. This is inexplicable magic expressed in the purest
+                way, everything that makes up this majestic work deserves
+                reverence. Let us appreciate this for what it is and what it
+                contains.
+              </p>
             </div>
-            <p class="main__comments-card__bottom-paragraph">
-              This is art. This is inexplicable magic expressed in the purest
-              way, everything that makes up this majestic work deserves
-              reverence. Let us appreciate this for what it is and what it
-              contains.
-            </p>
           </div>
-        </div>
+          <div class="main__comments-card">
+            <img
+              class="main__comments-empty-avatar"
+              src="#"
+              alt="empty avatar"
+            />
+            <div class="main__comments-card__right">
+              <div class="main__comments-card__right-top">
+                <h5 class="main__comments-card__right-top-header">
+                  Connor Walton
+                </h5>
+                <p class="main__comments-card__right-top-date">02/17/2021</p>
+              </div>
+              <p class="main__comments-card__bottom-paragraph">
+                This is art. This is inexplicable magic expressed in the purest
+                way, everything that makes up this majestic work deserves
+                reverence. Let us appreciate this for what it is and what it
+                contains.
+              </p>
+            </div>
+          </div>
+        </section>
       </section>
     </main>
     <footer class="footer">
       <section class="footer__container footer__container-top">
-        <h1 class="footer__header">Get in Touch</h1>
+        <h2 class="footer__header">Get in Touch</h2>
         <div class="footer__icon-container">
           <img
-            class="footer__icon"
+            class="footer__icon footer__icon-left"
             src="assets/Icons/SVG/Icon-instagram.svg"
             alt="instagram logo"
           />
           <img
-            class="footer__icon"
+            class="footer__icon footer__icon-middle"
             src="assets/Icons/SVG/Icon-facebook.svg"
             alt="facebook logo"
           />
           <img
-            class="footer__icon"
+            class="footer__icon footer__icon-right"
             src="assets/Icons/SVG/Icon-twitter.svg"
             alt="twitter logo"
           />
@@ -239,7 +271,7 @@
           <!-- break here -->
           <p class="footer__paragraph">info@thebeesknees.com</p>
         </div>
-        <div class="footer__bottom-section">
+        <div class="footer__bottom-section footer__bottom-middle">
           <p
             class="footer__paragraph--bold footer__paragraph--top-padding--large"
           >
@@ -284,6 +316,7 @@
         src="assets/Logo/Logo-bandsite.svg"
         class="footer__logo-image"
         alt="Bandsite Logo"
+        href="index.html"
       />
       <p
         class="footer__paragraph footer__paragraph--top-padding--small footer__paragraph--bottom-padding--small"
