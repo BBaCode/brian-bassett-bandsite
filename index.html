@@ -10,12 +10,13 @@
   <body>
     <header>
       <nav class="nav">
-        <img
-          src="assets/Logo/Logo-bandsite.svg"
-          class="nav__header-image"
-          alt="Bandsite logo"
-          href="index.html"
-        />
+        <a href="index.html">
+          <img
+            src="assets/Logo/Logo-bandsite.svg"
+            class="nav__header-image"
+            alt="Bandsite logo"
+          />
+        </a>
         <ul class="nav__list">
           <li class="nav__link-container nav__link-container--active">
             <a class="nav__link nav__link--active" href="index.html"
@@ -147,24 +148,29 @@
                 class="main__comments-field"
                 placeholder="Enter your name"
               />
-              <label class="main__comments-label">COMMENT</label>
+              <label for="comment" class="main__comments-label">COMMENT</label>
               <input
                 type="text"
-                id="name"
+                id="comment"
                 ;
-                name="name"
+                name="comment"
                 ;
                 class="main__comments-field main__comments-field--padding-bottom"
                 placeholder="Add a new comment"
               />
-              <button id="button" name="button" class="main__comments-button">
+              <button
+                type="submit"
+                id="button"
+                name="button"
+                class="main__comments-button"
+              >
                 COMMENT
               </button>
             </form>
           </article>
         </div>
         <section class="main__comments-card-container">
-          <div class="main__comments-card">
+          <!-- <div class="main__comments-card">
             <img
               class="main__comments-empty-avatar"
               src="#"
@@ -226,7 +232,7 @@
                 contains.
               </p>
             </div>
-          </div>
+          </div> -->
         </section>
       </section>
     </main>
@@ -235,21 +241,22 @@
         <h2 class="footer__header">Get in Touch</h2>
         <div class="footer__icon-container">
           <img
-            class="footer__icon footer__icon-left"
+            class="footer__icon"
             src="assets/Icons/SVG/Icon-instagram.svg"
             alt="instagram logo"
           />
           <img
-            class="footer__icon footer__icon-middle"
+            class="footer__icon"
             src="assets/Icons/SVG/Icon-facebook.svg"
             alt="facebook logo"
           />
           <img
-            class="footer__icon footer__icon-right"
+            class="footer__icon"
             src="assets/Icons/SVG/Icon-twitter.svg"
             alt="twitter logo"
           />
         </div>
+        <div class="footer__container-empty"></div>
       </section>
       <section class="footer__container footer__container-middle">
         <div class="footer__bottom-section">
@@ -312,12 +319,14 @@
           </p>
         </div>
       </section>
-      <img
-        src="assets/Logo/Logo-bandsite.svg"
-        class="footer__logo-image"
-        alt="Bandsite Logo"
-        href="index.html"
-      />
+
+      <a href="index.html">
+        <img
+          src="assets/Logo/Logo-bandsite.svg"
+          class="footer__logo-image"
+          alt="Bandsite Logo"
+        />
+      </a>
       <p
         class="footer__paragraph footer__paragraph--top-padding--small footer__paragraph--bottom-padding--small"
       >

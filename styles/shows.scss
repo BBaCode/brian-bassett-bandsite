@@ -7,11 +7,9 @@
 body {
   font-family: "AvenirNextLTPro-Regular";
 }
-
 header {
   background-color: #323232;
 }
-
 .nav {
   display: flex;
   flex-direction: column;
@@ -24,7 +22,7 @@ header {
     width: 50%;
   }
   @include desktop {
-    margin-left: 2.9375rem;
+    margin-left: 5rem;
   }
   &__header-image {
     @include logo;
@@ -81,7 +79,6 @@ header {
     }
   }
 }
-
 .main {
   color: $primary-black;
   &__container {
@@ -101,18 +98,36 @@ header {
     padding: 0 $other-padding;
     @include tablet {
       padding-left: $tablet-other-padding;
-      height: 55vh;
+      height: 60vh;
     }
     @include desktop {
-      padding-left: 4.9375rem;
+      padding-left: 7.25rem;
+      height: 70vh;
+      position: relative;
     }
     &-subheader {
       @include subheader;
       padding: $before-heading-padding 0;
       font-weight: 400;
+      @include tablet {
+        padding-top: 3rem;
+      }
+      @include desktop {
+        padding-top: 8.5rem;
+      }
     }
     &-header {
       @include page-header;
+      @include desktop {
+        display: none;
+      }
+      &-desktop {
+        display: none;
+        @include desktop {
+          display: inline;
+          @include page-header;
+        }
+      }
     }
   }
   &__iframe {
@@ -122,14 +137,36 @@ header {
     @include tablet {
       width: 26rem;
     }
+    @include desktop {
+      position: absolute;
+      top: 11.5rem;
+      right: 10rem;
+      height: 8rem;
+    }
   }
   &__shows {
     background-color: $primary-white;
+    @include desktop {
+      padding-left: 5rem;
+      display: flex;
+      flex-direction: row;
+    }
+    &-desktop {
+      @include desktop {
+        display: flex;
+        flex-direction: column;
+        width: 77%;
+        padding: 28px 0;
+      }
+    }
     &-header {
       @include section-header;
       padding: $before-heading-padding 0 0 $other-padding;
       @include tablet {
-        padding-left: $tablet-other-padding;
+        padding: $tablet-heading-padding 0 0 $tablet-other-padding;
+      }
+      @include desktop {
+        padding-right: $tablet-heading-padding;
       }
     }
     &-labels {
@@ -149,6 +186,12 @@ header {
       flex-direction: column;
       padding: $other-padding;
       border-bottom: 1px solid $secondary-mercury;
+      &:hover {
+        background-color: #fafafa;
+      }
+      &:active {
+        background-color: $secondary-mercury;
+      }
       @include tablet {
         flex-direction: row;
         align-items: center;
@@ -185,30 +228,37 @@ header {
     &-button {
       @include button;
       margin-top: $other-padding;
+      margin-bottom: 0;
       @include tablet {
         width: 18%;
-        margin-bottom: 0;
         margin-top: 0;
       }
     }
   }
 }
-
 .footer {
   background: $primary-black;
   color: $primary-white;
   padding-left: $other-padding;
+
   @include tablet {
     padding-left: $tablet-other-padding;
     position: relative;
+  }
+  @include desktop {
+    padding-left: 6.625rem;
   }
   &__header {
     @include section-header;
     margin: 0 0 $other-padding;
     padding-top: $before-heading-padding;
     @include tablet {
+      width: 14.1875rem;
       align-self: center;
       padding-bottom: 0.5rem;
+    }
+    @include desktop {
+      margin-right: $tablet-other-padding;
     }
   }
   &__container {
@@ -217,44 +267,61 @@ header {
     @include tablet {
       flex-direction: row;
     }
+
     &-top {
       @include tablet {
-        padding-top: 0.75rem;
+        padding: 0.75rem $tablet-other-padding 0 0;
+        display: flex;
+        justify-content: space-between;
       }
       @include desktop {
-        margin-left: 3.9375rem;
+        justify-content: flex-start;
       }
     }
     &-middle {
       @include tablet {
-        justify-content: space-evenly;
-        margin-left: -2.5rem;
+        justify-content: space-between;
+        // margin-left: -2.5rem;
+        margin-right: $tablet-other-padding;
       }
       @include desktop {
-        width: 75%;
-        margin-left: -1rem;
+        justify-content: flex-start;
       }
+    }
+
+    &-empty {
+      display: none;
+      @include tablet {
+        display: inline;
+        width: 14.1875rem;
+      }
+    }
+  }
+  &__bottom-section {
+    @include tablet {
+      width: 14.1875rem;
+    }
+    @include desktop {
+      margin-right: $tablet-other-padding;
     }
   }
   &__icon-container {
     display: flex;
-    margin-left: -1rem;
-    width: 30vw;
+    width: 25vw;
     align-items: center;
+    justify-content: flex-start;
     @include tablet {
-      margin-left: 2.5rem;
+      width: 14.1875rem;
     }
     @include desktop {
-      margin-left: 7rem;
-      width: 25vw;
+      margin-right: $tablet-other-padding;
     }
   }
   &__icon {
     width: 1.5rem;
     height: 1.5rem;
-    margin: 0 1rem;
+    margin-right: 2rem;
   }
-
   &__logo-image {
     @include logo;
     @include tablet {
@@ -262,8 +329,10 @@ header {
       top: $tablet-heading-padding;
       right: $tablet-other-padding;
     }
+    @include desktop {
+      margin-right: 4.375rem;
+    }
   }
-
   &__paragraph {
     @include footer-copy;
     &--bold {
@@ -278,12 +347,12 @@ header {
     }
     &--bottom-padding--small {
       padding-bottom: $other-padding;
+      @include desktop {
+        padding-bottom: $tablet-other-padding;
+      }
     }
     &--top-padding--small {
       padding-top: $other-padding;
-      @include desktop {
-        margin-left: 3.9375rem;
-      }
     }
     &--bottom-padding--large {
       padding-bottom: 2.5rem;
