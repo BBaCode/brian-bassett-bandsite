@@ -19,30 +19,28 @@ const defaultComments = [
   },
 ];
 
-const newComment = [""];
-//if the button is clicked, assign the name, date and comment to variables
-//then add these variables to newComment
-//push the newComment to the array above
+console.log(defaultComments);
 
-const commentSection = document.querySelector(".main__comments-card-container");
+const commentSection = document.getElementById("commentCard");
+const formComments = document.getElementById("form");
 
-for (let i = 0; i < defaultComments.length; i++) {
-  const name = defaultComments[i].name;
-  const date = defaultComments[i].date;
-  const comment = defaultComments[i].comment;
+function displayComment(arr) {
+  let name = arr.name;
+  let date = arr.date;
+  let comment = arr.comment;
 
   //creating all of the elements
 
-  const commentCard = document.createElement("div");
+  let commentCard = document.createElement("div");
   //the commentCard holds all of the below
-  const avatarCard = document.createElement("img");
-  const rightCard = document.createElement("div");
-  const nameDateCardBox = document.createElement("div");
+  let avatarCard = document.createElement("img");
+  let rightCard = document.createElement("div");
+  let nameDateCardBox = document.createElement("div");
   //the nameDateCardBox holds the nameCard and dateCard
-  const nameCard = document.createElement("h5");
-  const dateCard = document.createElement("p");
+  let nameCard = document.createElement("h5");
+  let dateCard = document.createElement("p");
   //card bottom
-  const paragraphCard = document.createElement("p");
+  let paragraphCard = document.createElement("p");
 
   //putting text/content/attributes in all of the elements
 
@@ -63,12 +61,46 @@ for (let i = 0; i < defaultComments.length; i++) {
 
   //append everything together here
 
-  nameDateCardBox.appendChild(nameCard);
-  nameDateCardBox.appendChild(dateCard);
-  rightCard.appendChild(nameDateCardBox);
-  rightCard.appendChild(paragraphCard);
+  commentSection.appendChild(commentCard);
   commentCard.appendChild(avatarCard);
   commentCard.appendChild(rightCard);
-
-  commentSection.appendChild(commentCard);
+  rightCard.appendChild(nameDateCardBox);
+  nameDateCardBox.appendChild(nameCard);
+  nameDateCardBox.appendChild(dateCard);
+  rightCard.appendChild(paragraphCard);
 }
+
+defaultComments.forEach((comment) => {
+  displayComment(comment);
+});
+
+//THIS ADDS TO THE FRONT OF THE ARRAY BUT PRINTS UNDEFINED AT THE BOTTOM
+//TRIED TO FOLLOW NIGELS CODE BUT THE DEMO DID NOT WORK FOR ADDING ELEMENTS FROM FORM INPUTS UPON OPENING, COULDNT REMEMBER WHAT HE CHANGED
+
+formComments.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  let nameItem = event.target.name.value;
+  let dateItem = new Date();
+  let dateOfComment =
+    dateItem.getMonth() +
+    1 +
+    "/" +
+    dateItem.getDate() +
+    "/" +
+    dateItem.getFullYear();
+  let commentItem = event.target.comment.value;
+
+  if (nameItem && dateItem && commentItem) {
+    defaultComments.unshift({
+      name: nameItem,
+      date: dateOfComment,
+      comment: commentItem,
+    });
+    displayComment(defaultComments);
+  }
+  let resetName = document.querySelectorAll(".main__comments-field");
+  if (!nameItem) {
+    resetName.classList.add("main__comment--error");
+  }
+});
