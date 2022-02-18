@@ -1,0 +1,204 @@
+@use "partials/colors.scss" as *;
+@use "partials/reset.scss" as *;
+@use "partials/mixins.scss" as *;
+@use "partials/fonts.scss" as *;
+@use "partials/padding.scss" as *;
+
+body {
+  font-family: "AvenirNextLTPro-Regular";
+}
+header {
+  background-color: #323232;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: $primary-black;
+  @include tablet {
+    flex-direction: row;
+    width: 50%;
+  }
+  @include desktop {
+    margin-left: 5rem;
+  }
+  &__header-image {
+    @include logo;
+    margin: 1rem 0 0;
+    @include tablet {
+      margin: $tablet-other-padding;
+    }
+  }
+  &__list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    @include desktop {
+      justify-content: flex-start;
+    }
+  }
+  &__link-container {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: $other-padding;
+    @include tablet {
+      padding: 0;
+    }
+    @include desktop {
+      width: 7vw;
+    }
+    &--active {
+      border-bottom: 0.3rem solid $primary-white;
+      @include tablet {
+        border-bottom: none;
+      }
+    }
+    &:hover {
+      border-bottom: 0.3rem solid $primary-white;
+      @include tablet {
+        border-bottom: none;
+      }
+    }
+  }
+  &__link {
+    @include body-copy;
+    color: $primary-silver;
+    &--active {
+      font-weight: 700;
+      color: $primary-white;
+      @include tablet {
+        border-bottom: 0.25rem solid $primary-white;
+        padding-bottom: 2.2rem;
+      }
+    }
+    &:hover {
+      color: $primary-white;
+    }
+  }
+}
+
+.footer {
+  background: $primary-black;
+  color: $primary-white;
+  padding-left: $other-padding;
+
+  @include tablet {
+    padding-left: $tablet-other-padding;
+    position: relative;
+  }
+  @include desktop {
+    padding-left: 6.625rem;
+  }
+  &__header {
+    @include section-header;
+    margin: 0 0 $other-padding;
+    padding-top: $before-heading-padding;
+    @include tablet {
+      width: 14.1875rem;
+      align-self: center;
+      padding-bottom: 0.5rem;
+    }
+    @include desktop {
+      margin-right: $tablet-other-padding;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+    }
+    &-top {
+      @include tablet {
+        padding: 0.75rem $tablet-other-padding 0 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      @include desktop {
+        justify-content: flex-start;
+      }
+    }
+    &-middle {
+      @include tablet {
+        justify-content: space-between;
+
+        margin-right: $tablet-other-padding;
+      }
+      @include desktop {
+        justify-content: flex-start;
+      }
+    }
+    &-empty {
+      display: none;
+      @include tablet {
+        display: inline;
+        width: 14.1875rem;
+      }
+    }
+  }
+  &__bottom-section {
+    @include tablet {
+      width: 14.1875rem;
+    }
+    @include desktop {
+      margin-right: $tablet-other-padding;
+    }
+  }
+  &__icon-container {
+    display: flex;
+    width: 25vw;
+    align-items: center;
+    justify-content: flex-start;
+    @include tablet {
+      width: 14.1875rem;
+    }
+    @include desktop {
+      margin-right: $tablet-other-padding;
+    }
+  }
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 2rem;
+  }
+
+  &__logo-image {
+    @include logo;
+    @include tablet {
+      position: absolute;
+      top: $tablet-heading-padding;
+      right: $tablet-other-padding;
+    }
+    @include desktop {
+      margin-right: 4.375rem;
+    }
+  }
+  &__paragraph {
+    @include footer-copy;
+    &--bold {
+      font-weight: 700;
+      line-height: 1.125rem;
+      @include tablet {
+        line-height: 1.25rem;
+      }
+    }
+    &--top-padding--large {
+      padding-top: $before-heading-padding;
+    }
+    &--bottom-padding--small {
+      padding-bottom: $other-padding;
+      @include desktop {
+        padding-bottom: $tablet-other-padding;
+      }
+    }
+    &--top-padding--small {
+      padding-top: $other-padding;
+    }
+    &--bottom-padding--large {
+      padding-bottom: 2.5rem;
+    }
+  }
+}

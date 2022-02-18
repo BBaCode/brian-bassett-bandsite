@@ -1,4 +1,4 @@
-const apiKey = "32d895a1-92c9-4310-bb26-8e03ec7bf488";
+const apiKey = "32d895a1-92c9-4310-bb26-8e03ec7bf48";
 const commentURL = "https://project-1-api.herokuapp.com/comments?api_key=";
 const getComments = commentURL + apiKey;
 
@@ -86,6 +86,7 @@ axios
           name: nameItem,
           timestamp: dateOfComment,
           comment: commentItem,
+          //form.reset()l
         });
         console.log(defaultComments);
         defaultComments.forEach((comment) => {
@@ -102,6 +103,23 @@ axios
   .catch((error) => {
     console.log(error);
   });
+
+// let newPost = {
+//   name: nameItem,
+//   comment: commentItem,
+// };
+
+// if (nameItem && commentItem) {
+//   // defaultComments.unshift({
+//   //   name: nameItem,
+//   //   timestamp: dateOfComment,
+//   //   comment: commentItem,
+//   // });
+//   axios.post(getComments, newPost).then();
+
+//   defaultComments.forEach((comment) => {
+//     displayComment(comment);
+//   });
 
 // const defaultComments = [
 //   {

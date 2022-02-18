@@ -4,8 +4,6 @@ const getShows = showsURL + apiKey;
 
 const shows = [];
 
-//put axios in
-
 axios
   .get(getShows)
   .then((response) => {
@@ -37,10 +35,11 @@ axios
 
     showsSection.appendChild(tabletCard);
 
-    for (let i = 0; i < shows.length; i++) {
-      const date = shows[i].date;
-      const venue = shows[i].venue;
-      const location = shows[i].location;
+    function displayShows(arr) {
+      const date = arr.date;
+      // const date = arr.date;
+      const venue = arr.place;
+      const location = arr.location;
 
       //creating all of the elements below
 
@@ -87,6 +86,57 @@ axios
 
       showsSection.appendChild(showCard);
     }
+    shows.forEach((show) => displayShows(show));
+    // for (let i = 0; i < shows.length; i++) {
+    //   const date = shows[i].date;
+    //   const venue = shows[i].place;
+    //   const location = shows[i].location;
+
+    //   //creating all of the elements below
+
+    //   const showCard = document.createElement("ul"); //div for the card -append all the below to this
+    //   const dateTitle = document.createElement("li"); //these three are the labels
+    //   const venueTitle = document.createElement("li");
+    //   const locationTitle = document.createElement("li");
+    //   const cardDate = document.createElement("li"); //these three are the actual values
+    //   const cardVenue = document.createElement("li");
+    //   const cardLocation = document.createElement("li");
+    //   const cardButton = document.createElement("button");
+
+    //   //giving inner Text to everything
+
+    //   dateTitle.innerText = "DATE";
+    //   venueTitle.innerText = "VENUE";
+    //   locationTitle.innerText = "LOCATION";
+    //   cardDate.innerText = date;
+    //   cardVenue.innerText = venue;
+    //   cardLocation.innerText = location;
+    //   cardButton.innerText = "BUY TICKETS";
+
+    //   //adding classes to all of the elements
+
+    //   showCard.classList.add("main__shows-container");
+    //   dateTitle.classList.add("main__shows-titles");
+    //   venueTitle.classList.add("main__shows-titles");
+    //   locationTitle.classList.add("main__shows-titles");
+    //   cardDate.classList.add("main__shows-info");
+    //   cardDate.classList.add("main__shows-info-bold");
+    //   cardVenue.classList.add("main__shows-info");
+    //   cardLocation.classList.add("main__shows-info");
+    //   cardButton.classList.add("main__shows-button");
+
+    //   //appending all of the elements
+
+    //   showCard.appendChild(dateTitle);
+    //   showCard.appendChild(cardDate);
+    //   showCard.appendChild(venueTitle);
+    //   showCard.appendChild(cardVenue);
+    //   showCard.appendChild(locationTitle);
+    //   showCard.appendChild(cardLocation);
+    //   showCard.appendChild(cardButton);
+
+    //   showsSection.appendChild(showCard);
+    // }
   })
   .catch((error) => {
     console.log(error);
