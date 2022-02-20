@@ -1,102 +1,20 @@
-const apiKey = "32d895a1-92c9-4310-bb26-8e03ec7bf48";
+const apiKey = "32d895a1-92c9-4310-bb26-8e03ec7bf4";
 const commentURL = "https://project-1-api.herokuapp.com/comments?api_key=";
 const getComments = commentURL + apiKey;
 
-const defaultComments = [];
+let defaultComments = [];
+
+const nameField = document.getElementById("name");
+const commentField = document.getElementById("comment");
 
 axios
   .get(getComments)
   .then((response) => {
-    for (i = 0; i < response.data.length; i++) {
-      defaultComments[i] = response.data[i];
-    }
-    const commentSection = document.getElementById("commentCard");
-    const formComments = document.getElementById("form");
-
-    // make this work
-    // const resetField = document.querySelectorAll(".main__comments-field");
-    // resetField.value = "";
-
-    function displayComment(arr) {
-      const name = arr.name;
-      const timestamp = arr.timestamp;
-      const timeItem = new Date(timestamp);
-      const date =
-        timeItem.getMonth() +
-        1 +
-        "/" +
-        timeItem.getDate() +
-        "/" +
-        timeItem.getFullYear();
-      const comment = arr.comment;
-
-      //creating all of the elements
-
-      let commentCard = document.createElement("div");
-      //the commentCard holds all of the below
-      let avatarCard = document.createElement("img");
-      let rightCard = document.createElement("div");
-      let nameDateCardBox = document.createElement("div");
-      //the nameDateCardBox holds the nameCard and dateCard
-      let nameCard = document.createElement("h5");
-      let dateCard = document.createElement("p");
-      //card bottom
-      let paragraphCard = document.createElement("p");
-
-      //putting text/content/attributes in all of the elements
-
-      avatarCard.setAttribute("src", "assets/images/mercury.png");
-      nameCard.innerText = name;
-      dateCard.innerText = date;
-      paragraphCard.innerText = comment;
-
-      //putting classes on all of the elements
-
-      commentCard.classList.add("main__comments-card");
-      avatarCard.classList.add("main__comments-empty-avatar");
-      rightCard.classList.add("main__comments-card__right");
-      nameDateCardBox.classList.add("main__comments-card__right-top");
-      nameCard.classList.add("main__comments-card__right-top-header");
-      dateCard.classList.add("main__comments-card__right-top-date");
-      paragraphCard.classList.add("main__comments-card__bottom-paragraph");
-
-      //append everything together here
-
-      commentSection.appendChild(commentCard);
-      commentCard.appendChild(avatarCard);
-      commentCard.appendChild(rightCard);
-      rightCard.appendChild(nameDateCardBox);
-      nameDateCardBox.appendChild(nameCard);
-      nameDateCardBox.appendChild(dateCard);
-      rightCard.appendChild(paragraphCard);
-    }
+    defaultComments = response.data.sort((a, b) => {
+      return b.timestamp - a.timestamp;
+    });
     defaultComments.forEach((comment) => {
       displayComment(comment);
-    });
-
-    formComments.addEventListener("submit", (event) => {
-      event.preventDefault();
-      commentSection.innerText = "";
-      let nameItem = event.target.name.value;
-      let dateOfComment = Date.now();
-      let commentItem = event.target.comment.value;
-
-      if (nameItem && dateOfComment && commentItem) {
-        defaultComments.unshift({
-          name: nameItem,
-          timestamp: dateOfComment,
-          comment: commentItem,
-          //form.reset()l
-        });
-        console.log(defaultComments);
-        defaultComments.forEach((comment) => {
-          displayComment(comment);
-        });
-      }
-      let resetName = document.querySelectorAll(".main__comments-field");
-      if (!nameItem) {
-        resetName.classList.add("main__comment--error");
-      }
     });
     console.log(defaultComments);
   })
@@ -104,132 +22,102 @@ axios
     console.log(error);
   });
 
-// let newPost = {
-//   name: nameItem,
-//   comment: commentItem,
-// };
+const commentSection = document.getElementById("commentCard");
+const formComments = document.getElementById("form");
 
-// if (nameItem && commentItem) {
-//   // defaultComments.unshift({
-//   //   name: nameItem,
-//   //   timestamp: dateOfComment,
-//   //   comment: commentItem,
-//   // });
-//   axios.post(getComments, newPost).then();
+function displayComment(arr) {
+  const name = arr.name;
+  const timestamp = arr.timestamp;
+  const timeItem = new Date(timestamp);
+  console.log(timeItem);
+  const date =
+    timeItem.getMonth() +
+    1 +
+    "/" +
+    timeItem.getDate() +
+    "/" +
+    timeItem.getFullYear();
+  const comment = arr.comment;
 
-//   defaultComments.forEach((comment) => {
-//     displayComment(comment);
-//   });
+  //creating all of the elements
 
-// const defaultComments = [
-//   {
-//     name: "Connor Walton",
-//     date: "02/17/2021",
-//     comment:
-//       "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-//   },
-//   {
-//     name: "Emilie Beach",
-//     date: "01/09/2021",
-//     comment:
-//       "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-//   },
-//   {
-//     name: "Miles Acosta",
-//     date: "12/20/2020",
-//     comment:
-//       "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-//   },
-// ];
+  let commentCard = document.createElement("div");
+  //the commentCard holds all of the below
+  let avatarCard = document.createElement("img");
+  let rightCard = document.createElement("div");
+  let nameDateCardBox = document.createElement("div");
+  //the nameDateCardBox holds the nameCard and dateCard
+  let nameCard = document.createElement("h5");
+  let dateCard = document.createElement("p");
+  //card bottom
+  let paragraphCard = document.createElement("p");
 
-// console.log(defaultComments);
+  //putting text/content/attributes in all of the elements
 
-// const commentSection = document.getElementById("commentCard");
-// const formComments = document.getElementById("form");
+  avatarCard.setAttribute("src", "assets/images/mercury.png");
+  nameCard.innerText = name;
+  dateCard.innerText = date;
+  paragraphCard.innerText = comment;
 
-// // make this work
-// // const resetField = document.querySelectorAll(".main__comments-field");
-// // resetField.innerHTML = " ";
+  //putting classes on all of the elements
 
-// function displayComment(arr) {
-//   let name = arr.name;
-//   let date = arr.date;
-//   let comment = arr.comment;
+  commentCard.classList.add("main__comments-card");
+  avatarCard.classList.add("main__comments-empty-avatar");
+  rightCard.classList.add("main__comments-card__right");
+  nameDateCardBox.classList.add("main__comments-card__right-top");
+  nameCard.classList.add("main__comments-card__right-top-header");
+  dateCard.classList.add("main__comments-card__right-top-date");
+  paragraphCard.classList.add("main__comments-card__bottom-paragraph");
 
-//   //creating all of the elements
+  //append everything together here
 
-//   let commentCard = document.createElement("div");
-//   //the commentCard holds all of the below
-//   let avatarCard = document.createElement("img");
-//   let rightCard = document.createElement("div");
-//   let nameDateCardBox = document.createElement("div");
-//   //the nameDateCardBox holds the nameCard and dateCard
-//   let nameCard = document.createElement("h5");
-//   let dateCard = document.createElement("p");
-//   //card bottom
-//   let paragraphCard = document.createElement("p");
+  commentSection.appendChild(commentCard);
+  commentCard.appendChild(avatarCard);
+  commentCard.appendChild(rightCard);
+  rightCard.appendChild(nameDateCardBox);
+  nameDateCardBox.appendChild(nameCard);
+  nameDateCardBox.appendChild(dateCard);
+  rightCard.appendChild(paragraphCard);
+}
+defaultComments.forEach((comment) => {
+  displayComment(comment);
+});
 
-//   //putting text/content/attributes in all of the elements
+formComments.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-//   avatarCard.setAttribute("src", "assets/images/mercury.png");
-//   nameCard.innerText = name;
-//   dateCard.innerText = date;
-//   paragraphCard.innerText = comment;
+  let nameItem = event.target.name.value;
 
-//   //putting classes on all of the elements
+  let commentItem = event.target.comment.value;
+  let newComment = {
+    name: nameItem,
+    comment: commentItem,
+  };
 
-//   commentCard.classList.add("main__comments-card");
-//   avatarCard.classList.add("main__comments-empty-avatar");
-//   rightCard.classList.add("main__comments-card__right");
-//   nameDateCardBox.classList.add("main__comments-card__right-top");
-//   nameCard.classList.add("main__comments-card__right-top-header");
-//   dateCard.classList.add("main__comments-card__right-top-date");
-//   paragraphCard.classList.add("main__comments-card__bottom-paragraph");
-
-//   //append everything together here
-
-//   commentSection.appendChild(commentCard);
-//   commentCard.appendChild(avatarCard);
-//   commentCard.appendChild(rightCard);
-//   rightCard.appendChild(nameDateCardBox);
-//   nameDateCardBox.appendChild(nameCard);
-//   nameDateCardBox.appendChild(dateCard);
-//   rightCard.appendChild(paragraphCard);
-// }
-// defaultComments.forEach((comment) => {
-//   displayComment(comment);
-// });
-
-// //THIS ADDS TO THE FRONT OF THE ARRAY BUT PRINTS UNDEFINED AT THE BOTTOM
-// //TRIED TO FOLLOW NIGELS CODE BUT THE DEMO DID NOT WORK FOR ADDING ELEMENTS FROM FORM INPUTS UPON OPENING, COULDNT REMEMBER WHAT HE CHANGED
-
-// formComments.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   commentSection.innerText = "";
-//   let nameItem = event.target.name.value;
-//   let dateItem = new Date();
-//   let dateOfComment =
-//     dateItem.getMonth() +
-//     1 +
-//     "/" +
-//     dateItem.getDate() +
-//     "/" +
-//     dateItem.getFullYear();
-//   let commentItem = event.target.comment.value;
-
-//   if (nameItem && dateItem && commentItem) {
-//     defaultComments.unshift({
-//       name: nameItem,
-//       date: dateOfComment,
-//       comment: commentItem,
-//     });
-//     console.log(defaultComments);
-//     defaultComments.forEach((comment) => {
-//       displayComment(comment);
-//     });
-//   }
-//   let resetName = document.querySelectorAll(".main__comments-field");
-//   if (!nameItem) {
-//     resetName.classList.add("main__comment--error");
-//   }
-// });
+  if (nameItem && commentItem) {
+    commentSection.innerText = "";
+    axios
+      .post(getComments, newComment)
+      .then((response) => {
+        axios
+          .get(getComments)
+          .then((response) => {
+            console.log(response.data);
+            commentArr = response.data.sort((a, b) => {
+              return b.timestamp - a.timestamp;
+            });
+            commentArr.forEach((comment) => {
+              displayComment(comment);
+              nameField.value = "";
+              commentField.value = "";
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+});

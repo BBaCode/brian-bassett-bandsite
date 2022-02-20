@@ -333,13 +333,16 @@ table {
 .main__shows-container:active {
   background-color: #e1e1e1;
 }
+.main__shows-container--toggle {
+  background-color: #e1e1e1;
+}
 @media screen and (min-width: 768px) {
   .main__shows-container {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 0;
-    margin: 0 2.25rem;
+    padding: 1rem 1.125rem;
+    margin: 0 1.125rem;
   }
 }
 .main__shows-titles {
