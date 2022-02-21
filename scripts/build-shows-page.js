@@ -94,15 +94,29 @@ axios
 
       showsSection.appendChild(showCard);
 
-      // allShows.push(showCard);
-      //TOGGLE
-      // showCard.addEventListener("click", () => {
-      //   if (!showCard.classList.contains("toggle")) {
-      //     showCard.classList.toggle("main__shows-container--toggle");
-      //   }
-      // });
+      allShows.push(showCard);
     }
     shows.forEach((show) => displayShows(show));
+    function toggleColor(show) {
+      for (let i = 0; i < show.length; i++) {
+        show[i].addEventListener("click", function (e) {
+          let now = this;
+          for (let i = 0; i < show.length; i++) {
+            if (now != show[i]) {
+              show[i].classList.remove("main__shows-container--toggle");
+            } else if (
+              now.classList.contains("main__shows-container--toggle") === true
+            ) {
+              now.classList.remove("main__shows-container--toggle");
+            } else {
+              now.classList.add("main__shows-container--toggle");
+            }
+          }
+          e.preventDefault();
+        });
+      }
+    }
+    toggleColor(document.querySelectorAll(".main__shows-container"));
   })
   .catch((error) => {
     console.log(error);
