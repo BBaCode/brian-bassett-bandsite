@@ -3,7 +3,7 @@ const showsURL = "https://project-1-api.herokuapp.com/showdates?api_key=";
 const getShows = showsURL + apiKey;
 
 const shows = [];
-
+const allShows = [];
 axios
   .get(getShows)
   .then((response) => {
@@ -38,7 +38,7 @@ axios
     function displayShows(arr) {
       const timestamp = parseInt(arr.date); //THIS IS  A STRING, TURN IT INTO A NUMBER
       const timeItem = new Date(timestamp);
-      console.log(timeItem);
+
       const date =
         timeItem.getMonth() +
         1 +
@@ -70,8 +70,6 @@ axios
       cardLocation.innerText = location;
       cardButton.innerText = "BUY TICKETS";
 
-      // showCard.setAttribute("onclick", "toggleShow()");
-
       //adding classes to all of the elements
 
       showCard.classList.add("main__shows-container");
@@ -84,9 +82,6 @@ axios
       cardLocation.classList.add("main__shows-info");
       cardButton.classList.add("main__shows-button");
 
-      showCard.addEventListener("click", function () {
-        showCard.classList.toggle("main__shows-container--toggle");
-      });
       // appending all of the elements
 
       showCard.appendChild(dateTitle);
@@ -98,6 +93,14 @@ axios
       showCard.appendChild(cardButton);
 
       showsSection.appendChild(showCard);
+
+      // allShows.push(showCard);
+      //TOGGLE
+      // showCard.addEventListener("click", () => {
+      //   if (!showCard.classList.contains("toggle")) {
+      //     showCard.classList.toggle("main__shows-container--toggle");
+      //   }
+      // });
     }
     shows.forEach((show) => displayShows(show));
   })

@@ -99,7 +99,6 @@
       @include tablet {
         display: flex;
         justify-content: space-between;
-        // justify-content: flex-start;
         padding: $tablet-other-padding $tablet-other-padding 0;
       }
     }
@@ -114,9 +113,9 @@
       &:hover {
         background-color: #fafafa;
       }
-      &:active {
-        background-color: $secondary-mercury;
-      }
+      // &:active {
+      //   background-color: $secondary-mercury;
+      // }
       &--toggle {
         background-color: $secondary-mercury;
       }
@@ -144,7 +143,6 @@
     }
     &-info {
       @include body-copy;
-      // padding-bottom: $other-padding;
       @include tablet {
         width: 23%;
         margin-right: $tablet-other-padding;
